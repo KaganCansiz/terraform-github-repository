@@ -17,6 +17,7 @@ locals {
   allow_squash_merge     = var.allow_squash_merge == null ? lookup(var.defaults, "allow_squash_merge", false) : var.allow_squash_merge
   allow_auto_merge       = var.allow_auto_merge == null ? lookup(var.defaults, "allow_auto_merge", false) : var.allow_auto_merge
   delete_branch_on_merge = var.delete_branch_on_merge == null ? lookup(var.defaults, "delete_branch_on_merge", true) : var.delete_branch_on_merge
+  allow_update_branch    = var.allow_update_branch == null ? lookup(var.defaults, "allow_update_branch", false) : var.allow_update_branch
   is_template            = var.is_template == null ? lookup(var.defaults, "is_template", false) : var.is_template
   has_downloads          = var.has_downloads == null ? lookup(var.defaults, "has_downloads", false) : var.has_downloads
   auto_init              = var.auto_init == null ? lookup(var.defaults, "auto_init", true) : var.auto_init
@@ -102,6 +103,7 @@ resource "github_repository" "repository" {
   allow_squash_merge     = local.allow_squash_merge
   allow_auto_merge       = local.allow_auto_merge
   delete_branch_on_merge = local.delete_branch_on_merge
+  allow_update_branch    = local.allow_update_branch
   is_template            = local.is_template
   has_downloads          = local.has_downloads
   auto_init              = local.auto_init
@@ -203,9 +205,7 @@ resource "github_branch_protection" "branch_protection" {
 
   allows_deletions                = try(var.branch_protections_v4[each.value].allows_deletions, false)
   allows_force_pushes             = try(var.branch_protections_v4[each.value].allows_force_pushes, false)
-  blocks_creations                = try(var.branch_protections_v4[each.value].blocks_creations, false)
   enforce_admins                  = try(var.branch_protections_v4[each.value].enforce_admins, true)
-  push_restrictions               = try(var.branch_protections_v4[each.value].push_restrictions, [])
   require_conversation_resolution = try(var.branch_protections_v4[each.value].require_conversation_resolution, false)
   require_signed_commits          = try(var.branch_protections_v4[each.value].require_signed_commits, false)
   required_linear_history         = try(var.branch_protections_v4[each.value].required_linear_history, false)

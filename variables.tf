@@ -102,6 +102,12 @@ variable "delete_branch_on_merge" {
   default     = null
 }
 
+variable "allow_update_branch" {
+  description = "(Optional) Whether or not to allow updating the branch before merging a pull request. (Default: false)"
+  type        = bool
+  default     = null
+}
+
 variable "has_downloads" {
   description = "(Optional) Set to true to enable the (deprecated) downloads features on the repository. (Default: false)"
   type        = bool

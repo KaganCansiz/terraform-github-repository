@@ -232,6 +232,14 @@ section {
         END
       }
 
+      variable "allow_update_branch" {
+        type        = bool
+        default     = false
+        description = <<-END
+          Set to `true` to allow updating the branch before merging a pull request.
+        END
+      }
+
       variable "homepage_url" {
         type        = string
         default     = ""

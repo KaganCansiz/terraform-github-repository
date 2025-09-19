@@ -194,6 +194,12 @@ See [variables.tf] and [examples/] for details and use-cases.
 
   Default is `true`.
 
+- [**`allow_update_branch`**](#var-allow_update_branch): *(Optional `bool`)*<a name="var-allow_update_branch"></a>
+
+  Set to `false` to disable the automatic deletion of head branches after pull requests are merged.
+
+  Default is `true`.
+
 - [**`homepage_url`**](#var-homepage_url): *(Optional `string`)*<a name="var-homepage_url"></a>
 
   URL of a page describing the project.

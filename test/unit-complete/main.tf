@@ -41,6 +41,7 @@ module "repository" {
   allow_squash_merge     = var.allow_squash_merge
   allow_auto_merge       = var.allow_auto_merge
   delete_branch_on_merge = var.delete_branch_on_merge
+  allow_update_branch    = var.allow_update_branch
   is_template            = var.is_template
   has_downloads          = var.has_downloads
   auto_init              = var.auto_init

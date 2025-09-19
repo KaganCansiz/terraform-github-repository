@@ -16,6 +16,12 @@ variable "delete_branch_on_merge" {
   default     = true
 }
 
+variable "allow_update_branch" {
+  description = "Whether or not to delete the merged branch after merging a pull request."
+  type        = bool
+  default     = true
+}
+
 variable "url" {
   description = "The url of the created repository."
   type        = string
